@@ -141,7 +141,12 @@ pub struct Circle {
 }
 
 impl Circle {
-   
+    pub fn new(x: i32, y: i32, radius: i32) -> Circle {
+        Circle {
+            center: Point(x, y),
+            radius,                                 
+        }
+    }
     pub fn random(limit_x: i32, limit_y: i32) -> Circle {
         let mut rng = rand::thread_rng();
 
