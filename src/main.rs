@@ -4,11 +4,11 @@ use geometrical_shapes as gs;
 use gs::{Displayable, Drawable};
 use raster::{Color, Image};
 
+use crate::geometrical_shapes::Circle;
+
 fn main() {
     let mut image = Image::blank(1000, 1000);
-
     gs::Line::random(image.width, image.height).draw(&mut image);
-
     gs::Point::random(image.width, image.height).draw(&mut image);
 
     let rectangle = gs::Rectangle::new(&gs::Point::new(150, 300), &gs::Point::new(50, 60));
@@ -25,6 +25,7 @@ fn main() {
         gs::Circle::random(image.width, image.height).draw(&mut image);
     }
 
+    Circle::new(10, 55, 90).draw(&mut image);
     raster::save(&image, "image.png").unwrap();
 }
 
